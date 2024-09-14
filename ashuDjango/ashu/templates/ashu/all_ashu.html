@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}
+ashu Page
+{% endblock %}
+
+{% block content %}
+<h1>Ashu books for you</h1>
+
+<div class="grid grid-cols-3 gap-3 m-4">
+
+{% for ashu in ashus %}
+<div class="bg-blue-500 p-5 rounded">
+<img class="rounded shadow-lg" src="{{ashu.image.url}}" alt="">
+<h3 class="text-2xl font-bold">{{ashu.name}}</h3>
+<a href="{% url 'ashu_detail' ashu.id %}">
+    <button
+    type="button"
+    class="inline-flex items-center w-[100%] justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-orange-600 hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
+    >
+        {{ashu.type}} - {{ashu.id}}
+    </button>
+</a>
+</div>
+{% endfor %}
+</div>
+
+
+{% endblock %}
+
